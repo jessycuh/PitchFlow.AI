@@ -36,7 +36,7 @@ piano-ai-app/
 
    ```
    git clone https://github.com/jessycuh/PitchFlow.AI.git
-   cd piano-ai-app
+   cd PitchFlow.AI
    ```
 
 2. **Create & activate virtual environment**
