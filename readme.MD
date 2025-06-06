@@ -35,7 +35,7 @@ piano-ai-app/
 1. **Clone repo**
 
    ```
-   git clone https://github.com/yourusername/piano-ai-app.git
+   git clone https://github.com/jessycuh/PitchFlow.AI.git
    cd piano-ai-app
    ```
 
