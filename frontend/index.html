@@ -1,0 +1,25 @@
+<!-- /frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>PitchFlow.AI</title>
+    <style>
+      body { font-family: sans-serif; text-align: center; margin-top: 3rem; }
+      #drop { border: 2px dashed #888; width: 400px; height: 200px; margin: 0 auto; 
+        display: flex; align-items: center; justify-content: center; cursor: pointer; }
+      #drop:hover { background-color: #dadada; }
+      #playBtn { margin-top: 1rem; padding: 0.5rem 1rem; font-size: 1rem; cursor: pointer; }
+      #noteDisplay { margin-top: 1rem; font-size: 1.2rem; }
+      h1 { font-size: 2rem; color: #333; }
+    </style>
+  </head>
+  <body>
+    <h1>PitchFlow.AI</h1>
+    <div id="drop">Drop/Upload your file here</div>
+    <button id="playBtn">Play Audio</button>
+    <p id="noteDisplay">Note: ----</p>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
+<script type="module" src="/src/main.js"></script>
