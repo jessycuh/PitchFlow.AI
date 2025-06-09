@@ -1,12 +1,24 @@
-env311/
-output/
-audios/
-*.wav
-*.mp3
-*.mid
+# Python virtual environments
+env*/
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
-.DS_Store
+
+# Node.js dependencies
+node_modules/
+frontend/node_modules/
+package-lock.json
+
+# Audio + MIDI assets (auto-generated or uploads)
+audios/
+uploads/
+output/
+*.wav
+*.mp3
+*.mid
+
+# Editor/IDE configs
 .vscode/
+.DS_Store
+Thumbs.db

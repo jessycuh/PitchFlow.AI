@@ -1,76 +1,119 @@
-# Piano AI App
+```markdown
+# PitchFlow.AI
 
-This project uses machine learning to convert raw audio (`.wav`) into MIDI files.
-Built on top of Spotify's `basic-pitch`, it enables audio-to-MIDI transcription for web-based playback or visualization.
+PitchFlow.AI is a browser-based audio-to-MIDI converter powered by Spotify's [basic-pitch](https://github.com/spotify/basic-pitch) and a custom Node.js + Python backend.
 
-## Features
+Drop in a `.wav` file and receive a downloadable `.mid` file you can preview in any MIDI tool.
 
-* Converts `.wav` audio files to `.mid` format
-* MIDI files usable for playback, sheet music rendering, or visualization
-* CLI-powered Python workflow using `basic-pitch`
-* Project structured for future Node.js + browser-based visualization
+---
 
-## Technology Stack
+## ✨ Features
 
-* Python 3.11
-* Node.js (planned for frontend/backend)
-* [basic-pitch](https://github.com/spotify/basic-pitch)
-* Optional: `tone.js`, `VexFlow`, or `OSMD` for frontend rendering
+- Drag-and-drop `.wav` upload via frontend
+- Converts audio into `.mid` format using `basic-pitch`
+- Full backend integration via Node.js server
+- Supports ONNX or TensorFlow model execution
+- Output MIDI file served instantly after conversion
 
-## Directory Structure
+---
+
+## 🧠 Tech Stack
+
+- **Python 3.10** (virtualenv `env310`)
+- **Node.js** for backend upload handler
+- **basic-pitch** (Spotify)
+- Optional frontend rendering: `Tone.js`, `VexFlow`, `OSMD`
+
+---
+
+## 📁 Directory Structure
 
 ```
+
 piano-ai-app/
-├── audios/               # Input .wav files (gitignored)
-├── output/               # Generated MIDI files (gitignored)
-├── env311/               # Python virtual environment (gitignored)
-├── run_basicpitch.py     # Optional script for automation
-├── server.js             # Placeholder for backend
-├── .gitignore
-└── README.md
+├── audios/               # Uploaded input .wav files
+├── output/               # Output MIDI files
+├── env310/               # Python venv (DO NOT COMMIT)
+├── frontend/
+│   ├── public/           # Static frontend assets
+│   └── src/              # React/Vite source files
+├── server.js             # Node.js backend
+├── run\_basicpitch.py     # (optional) standalone converter
+├── package.json          # Node.js project config
+├── README.md
+└── .gitignore
+
+````
+
+---
+
+## 🚀 Setup & Run
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/yourusername/PitchFlow.AI.git
+cd PitchFlow.AI
+````
+
+2. **Create and activate Python virtual environment**
+
+```bash
+python -m venv env310
+.\env310\Scripts\activate
 ```
 
-## Setup
+3. **Install required Python packages**
 
-1. **Clone repo**
-
-   ```
-   git clone https://github.com/jessycuh/PitchFlow.AI.git
-   cd PitchFlow.AI
-   ```
-
-2. **Create & activate virtual environment**
-
-   ```
-   python -m venv env311
-   .\env311\Scripts\activate
-   ```
-
-3. **Install dependencies**
-
-   ```
-   pip install basic-pitch
-   ```
-
-## Usage
-
-Convert audio to MIDI:
-
-```
-basic-pitch output audios\yourfile.wav --save-midi
+```bash
+pip install "basic-pitch[onnx]" onnxruntime
 ```
 
-Resulting `.mid` file will appear in `output/`.
+4. **Install Node dependencies**
 
-Test it at [OnlineSequencer.net](https://onlinesequencer.net/import) or any MIDI player.
+```bash
+cd frontend
+npm install
+```
 
-## Roadmap
+5. **Start backend**
 
-* [ ] Upload `.wav` via web
-* [ ] MIDI playback in browser (`tone.js`)
-* [ ] Sheet music view (`VexFlow` or `OSMD`)
-* [ ] Deployable Node.js integration
+```bash
+cd ..
+node server.js
+```
 
-## License
+6. **(Optional) Run frontend**
+   If using Vite:
 
-MIT License — free to use, modify, and share.
+```bash
+cd frontend
+npm run dev
+```
+
+---
+
+## 📥 Usage
+
+Drag a `.wav` file into the browser, and it will automatically be processed into a MIDI file downloadable via a URL like:
+
+```
+http://localhost:3000/output/yourfile_basic_pitch.mid
+```
+
+---
+
+## 🛣️ Roadmap
+
+* [x] Drag-and-drop `.wav` uploads
+* [x] Backend audio-to-MIDI via `basic-pitch`
+* [ ] Browser MIDI playback (Tone.js)
+* [ ] Sheet music rendering (OSMD or VexFlow)
+* [ ] Vercel deployment
+
+---
+
+## 📄 License
+
+MIT License — use it, remix it, ship it.
+
+````

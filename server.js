@@ -1,4 +1,3 @@
-// server.js
 import express from 'express';
 import multer from 'multer';
 import cors from 'cors';
@@ -29,14 +28,17 @@ const upload = multer({ storage });
 app.post('/upload', upload.single('audio'), (req, res) => {
   const inputPath = req.file.path;
   const baseName = path.parse(inputPath).name;
-  const outputMid = `output/${baseName}_basic_pitch.mid`;
+  const outputMid = path.join('output', `${baseName}_basic_pitch.mid`);
 
-  const cmd = `python run_basicpitch.py ${inputPath}`;
-  console.log('Running:', cmd);
+const cmd = `basic-pitch --save-midi output "${inputPath}"`;
+console.log("Running:", cmd);
 
-  exec(cmd, (error, stdout, stderr) => {
+  exec(cmd, { env: { ...process.env, PYTHONIOENCODING: 'utf-8' } }, (error, stdout, stderr) => {
+    console.log('STDOUT:', stdout);
+    console.error('STDERR:', stderr);
+
     if (error) {
-      console.error('Basic-Pitch error:', stderr);
+      console.error('Basic-Pitch error:', error);
       return res.status(500).json({ error: 'Conversion failed' });
     }
 
