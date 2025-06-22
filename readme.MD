@@ -6,7 +6,6 @@ Built on top of Spotify's `basic-pitch`, it enables audio-to-MIDI transcription 
 ## Features
 
 - Drag-and-drop audio upload via browser
-- Converts `.wav` files to `.mid` (MIDI)
 - Converts `.wav` or `.mp3` files to `.mid` (MIDI)
 - CLI-powered backend using `basic-pitch`
 - MIDI files viewable in any sequencer or music editor
