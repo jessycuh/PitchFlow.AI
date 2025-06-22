@@ -50,7 +50,6 @@ cd PitchFlow.AI
 ```bash
 python -m venv env310
 .\env310\Scripts\activate
-pip install "basic-pitch[onnx]"
 pip install basic-pitch tensorflow onnxruntime"
 ```
 
