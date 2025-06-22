@@ -75,6 +75,7 @@ npm install
    ```
 
 3. Open the browser and drop a `.wav` file.
+3. Open the browser and drop a `.wav` or `.mp3` file.
    The resulting `.mid` file will be saved in the `output/` folder and downloadable via the browser.
 
 ## License
